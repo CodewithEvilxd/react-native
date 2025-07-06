@@ -1,17 +1,16 @@
-import express from 'express';
+import express from "express";
 import {
   createTransaction,
   deleteTransaction,
-  getTransactionByUserId,
   getSummaryByUserId,
-} from '../controllers/transactionsController.js';
+  getTransactionsByUserId,
+} from "../controllers/transactionsController.js";
 
 const router = express.Router();
 
-router.get("/:userId", getTransactionByUserId);
-router.post("/", createTransaction); // ✅ Accepts POST request to /api/transactions
+router.get("/:userId", getTransactionsByUserId);
+router.post("/", createTransaction);
 router.delete("/:id", deleteTransaction);
-router.get("/summary/:user_id", getSummaryByUserId);
+router.get("/summary/:userId", getSummaryByUserId);
 
 export default router;
-
